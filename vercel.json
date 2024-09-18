@@ -15,14 +15,12 @@
             "config": {
                 "distDir": "staticfiles_build"
             }
-        },
+        }
+    ],
+    "routes": [
         {
-            "routes": [
-                {
-                    "src": "/static/(.*)",
-                    "dest": "/static/$1"
-                }
-            ]
+            "src": "/static/(.*)",
+            "dest": "/static/$1"
         },
         {
             "src": "/(.*)",

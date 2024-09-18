@@ -1,0 +1,283 @@
+h1.heading{
+    text-align: center;
+    margin-top: 20px;
+    background: linear-gradient(to right,#fc8c14,#ff0000,#fc8c14,#ff0000);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+.home_container{
+    position: relative;
+    max-width: 1350px;
+    width: 100%;
+    padding: 20px;
+    margin: 20px auto;
+}
+.home_container .fiter_buttons{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.home_container .fiter_buttons button{
+    padding: 10px 20px;
+    font-size: 18px;
+    background: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+.home_container .fiter_buttons button.active{
+    background: #0000ff;
+    color: #fff;
+}
+.filterable_cards{
+    display: flex;
+    justify-content: center;
+}
+.filterable_cards .card{
+    flex-basis: 300px;
+    max-width: 300px;
+    background-color: var(--text-color);
+    padding: 3px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+.filterable_cards .single-card{
+    flex-basis: 400px;
+    max-width: 400px;
+}
+.filterable_cards .card img{
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+    border-radius: 8px 8px 0 0;
+}
+.filterable_cards .card .card_body{
+    padding: 15px 20px;
+}
+.card .card_body .card_title{
+    font-size: 20px;
+    font-weight: 600;
+    color: #111;
+}
+.card .card_body .card_details{
+    font-size: 17px;
+    color: #111;
+}
+
+.input-field, form .button{
+    margin: 10px 0 5px;
+    position: relative;
+    height: 40px;
+    width: 100%;
+}
+.input-field input{
+    height: 100%;
+    width: 100%;
+    background-color: var(--text-color);
+    border: 1.5px solid var(--border-color);
+    padding-left: 10px;
+    outline: none;
+    font-size: 16px;
+    transition: 0.4s;
+}
+input:focus{
+    border: 1.5px solid var(--link-btn);
+}
+.input-field label{
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    pointer-events: none;
+    color: gray;
+    font-size: 16px;
+    transition: 0.4s;
+    transform: translateY(-50%);    
+}
+input:focus ~ label,
+input:valid ~ label{
+    transform: translateY(-30px);
+    padding: 0 3px;
+    background: var(--text-color);
+    font-size: 13px;
+    color: var(--link-btn);
+}
+form .button{
+    margin: 15px 0 0;
+    overflow: hidden;
+    z-index: 0;
+    border-radius: 20px;
+}
+.button .inner{
+    position: absolute;
+    height: 100%;
+    width: 300%;
+    left: -100%;
+    z-index: -1;
+    transition: all 0.4s;
+    background: -webkit-linear-gradient(right,#00dbde,#0004ff,#00dbde,#0004ff);
+}
+.button:hover .inner{
+    left: 0;   
+}
+.button button{
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: none;
+    outline: none;
+    color: var(--text-color);
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* ===============================================================================
+                                Orders
+==================================================================================*/
+
+.order_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25px;
+}
+.order_container main.table{
+    width: 85vw;
+    height: auto;
+    max-height: 90vh;
+    background-color: #fff5;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 .4rem .8rem #0005;
+    border-radius: .7rem;
+    overflow: auto;
+}
+.order_container main .table_header,
+.order_container main .table_header2{
+    width: 100%;
+    height: 10%;
+    background-color: #fff4;
+    text-align: center;
+    padding: .6rem 0;
+}
+.order_container main .table_header2{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .6rem .7rem;
+}
+.order_container main .table_header h1{
+    font-family: cursive;
+    background: -webkit-linear-gradient(left, #0d2ee8, #ae1df1, #0d2ee8, #ae1df1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.order_container main .table_body{
+    width: 100%;
+    max-height: 89%;
+    overflow: auto;
+}
+main .table_body::-webkit-scrollbar,
+.order_container main.table::-webkit-scrollbar{
+    width: 0.5rem;
+    height: 0.5rem;
+    visibility: hidden;
+}
+main .table_body::-webkit-scrollbar-thumb,
+.order_container main.table::-webkit-scrollbar-thumb{
+    visibility: hidden;
+}
+main .table_body:hover::-webkit-scrollbar,
+main .table_body:hover::-webkit-scrollbar-thumb,
+.order_container main.table:hover::-webkit-scrollbar,
+.order_container main.table:hover::-webkit-scrollbar-thumb{
+    visibility: visible;
+}
+main .table_body h1.not-added{
+    text-align: center;
+    color: red;
+    font-weight: 600;
+    margin: 30px 0;
+}
+table{
+    width: 100%;
+}
+td img{
+    width: 100px;
+    height: 64px;
+    vertical-align: middle;
+}
+table, th, td{
+    padding: 1rem;
+    border-collapse: collapse;
+    text-align: center;
+    text-transform: capitalize;
+}
+td{
+    padding: .5rem;
+}
+td a{
+    text-decoration: none;
+    cursor: pointer;
+    color: var(--action-clr);
+    font-size: 20px;
+}
+thead th{
+    position: static;
+    top: 0;
+    left: 0;
+    background-color: #d5d1defe;
+    pointer-events: none;
+}
+tbody tr:nth-child(even){
+    background-color: #0000000b;
+}
+tbody tr:hover{
+    background-color: #fff6;
+}
+.status{
+    padding: .4rem .2rem;
+    border-radius: 2rem;
+}
+.status.pending{
+    background-color: #ebc474;
+    color: #ff4500;
+}
+.status.cancelled{
+    background-color: #d893a3;
+    color: #b30021;
+}
+.status.completed{
+    background-color: #86e49d;
+    color: #006b21;
+}
+.status.accepted{
+    background-color: #86dbe4;
+    color: #00146b;
+}
+.no-order{
+    color: red;
+    text-align: center;
+    font-size: 26px;
+    margin: 30px 0;
+}
+
+@media (max-width: 1000px){
+    td:not(:first-of-type){
+        min-width: 7rem;
+    }
+}
+@media (max-width: 400px){
+    .filterable_cards .card .card_body{
+        padding: 10px 13px;
+    }
+    .card .card_body .card_title{
+        font-size: 17px;
+        font-weight: 600;
+    }
+    .card .card_body .card_details{
+        font-size: 15px;
+    }
+}

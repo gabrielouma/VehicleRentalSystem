@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="icon" href="{% static 'vehicle_images/logo.png' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'css/header_footer.css' %}">
+    <link rel="stylesheet" href="{% static 'css/register_recovery.css' %}">
+</head>
+<body>
+    <nav>
+        <div class="nav-bar">
+            <i class="fas fa-bars sidebarOpen"></i>
+            {% if login_type == "customer" %}
+            <span class="logo navLogo"><a href="/select_vehicle">My Vehicles</a></span>
+            {% else %}
+            <span class="logo navLogo"><a href="/dealer_home">My Vehicles</a></span>
+            {% endif %}
+            <div class="menu">
+                <div class="logo-toggle">
+                    {% if login_type == "customer" %}
+                    <span class="logo"><a href="/select_vehicle">My Vehicles</a></span>
+                    {% else %}
+                    <span class="logo"><a href="/dealer_home">My Vehicles</a></span>
+                    {% endif %}
+                    <i class="fas fa-xmark siderbarClose"></i>
+                </div>
+                
+                <ul class="nav-links">
+                    <li><a href="/user_profile" class="active">My Profile</a></li>
+                    {% if login_type == "customer" %}
+                    <li><a href="/select_vehicle">Vehicle</a></li>
+                    <li><a href="/request_vehicle">Request</a></li>
+                    <li><a href="/customer_orders">Orders</a></li>
+                    {% else %}
+                    <li><a href="/dealer_home">Vehicles</a></li>
+                    <li><a href="/add_vehicle">Add Vehicle</a></li>
+                    <li><a href="/rented_vehicle">Rents</a></li>
+                    <li><a href="/dealer_orders">Orders</a></li>
+                    {% endif %}
+                    <li><a href="/logout">Signout</a></li>
+                    <li>
+                        <div class="dark-light">
+                            <i class="fas fa-sun sun"></i>
+                            <i class="fas fa-moon moon"></i>
+                        </div>
+                    </li>
+                    <li><img src="{% static 'profile_picture/' %}{{ user.images }}" class="user-pic" alt="Profile Picture" onclick="toggleMenu()"></li>
+                </ul>
+            </div>
+            <div class="darkLight">
+                <div class="dark-light">
+                    <i class="fas fa-sun sun"></i>
+                    <i class="fas fa-moon moon"></i>
+                </div>
+                <img src="{% static 'profile_picture/' %}{{ user.images }}" alt="Profile Picture" onclick="toggleMenu()">
+            </div>
+            <div class="sub-menu-wrap" id="subMenu">
+                <div class="sub-menu">
+                    <div class="user-info">
+                        <img src="{% static 'profile_picture/' %}{{ user.images }}" alt="Profile Picture">
+                        <h3>Hii, {{ user.firstname }}</h3>
+                    </div>
+                    <hr>
+                    <a href="/user_profile" class="sub-menu-link">
+                        <i class="fas fa-user"></i>
+                        <p>Edit Profile</p>
+                        <span> > </span>
+                    </a>
+                    <a href="#" class="sub-menu-link">
+                        <i class="fas fa-gear"></i>
+                        <p>Settings & Privacy</p>
+                        <span> > </span>
+                    </a>
+                    <a href="#" class="sub-menu-link">
+                        <i class="fas fa-circle-question"></i>
+                        <p>Help & Support</p>
+                        <span> > </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+<!--  Header End -->
+
+    <!-- Main Content Start -->
+    <div class="about">
+        <div class="container">
+            <div class="title">My Details</div>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="user-img">
+                    <img src="{% static 'profile_picture/' %}{{ user.images }}" id="photo">
+                    <input type="file" id="file" name="name" accept="image/*">
+                    <label for="file" id="uploadbtn" title="*Total Image size must lessthan 8mb"><i class="fas fa-image"></i></label>
+                </div>
+                <p class="user-type"><strong>user type: </strong>{{login_type}}</p>
+                <div class="user-details">
+                    <div class="input-box">
+                        <input type="text" name="firstname" id="firstname" maxlength="25" autocomplete="off" value="{{ user.firstname }}" required>
+                        <label>First Name</label>
+                        <span id="error" class="error"></span>
+                    </div>
+                    <div class="input-box">
+                        <input type="text" name="lastname" id="lastname" maxlength="25" autocomplete="off" value="{{ user.lastname }}" required>
+                        <label>Last Name</label>
+                        <span id="error2" class="error"></span>
+                    </div>
+                    <div class="input-box">
+                        <input type="text" name="phoneno" minlength="10" maxlength="10" onKeyPress="return numbersonly(event)" autocomplete="off" id="phoneno" value="{{ user.phoneno }}" required>
+                        <label>Phone no</label>
+                        <span id="error3" class="error"></span>
+                    </div>
+                    <div class="input-box">
+                        <input class="pswrd" type="password" id="password" name="password" maxlength="12" value="{{ user.password }}" readonly required>
+                        <label>Password</label>
+                        <span class="show">SHOW</span> 
+                        <span id="error5" class="error"></span>
+                    </div>
+                    <div class="input-box">
+                        <input type="email" name="emailid" id="emailid" maxlength="35" autocomplete="off" value="{{ user.emailid }}" required>
+                        <label>Email ID</label>
+                        <span id="error4" class="error"></span>
+                    </div>
+                    <div class="input-box">
+                        <input type="text" name="gender" id="gender" value="{{ user.gender }}" disabled>
+                        <label>Gender</label>
+                    </div>
+                    <div class="input-box">
+                        <select name="secure_option">
+                            <option disabled>Select your option</option>
+                            <option value="what is your nick name ?" {% if user.secure_question == "what is your nick name ?" %}selected{% endif %}>
+                                What is your nick name ?
+                            </option>
+                            <option value="what is your pet name ?" {% if user.secure_question == "what is your pet name ?" %}selected{% endif %}>
+                                What is your pet name ?
+                            </option>
+                            <option value="what is your first school name ?" {% if user.secure_question == "what is your first school name ?" %}selected{% endif %}>
+                                What is your first school name ?
+                            </option>
+                            <option value="who was your childhood hero ?" {% if user.secure_question == "who was your childhood hero ?" %}selected{% endif %}>
+                                Who was your childhood hero ?
+                            </option>
+                            <option value="what is your favorite subject ?" {% if user.secure_question == "what is your favorite subject ?" %}selected{% endif %}>
+                                What is your favorite subject ?
+                            </option>
+                        </select>
+                        <span id="error6" class="error"></span>
+                    </div>
+                    <div class="input-box">
+                        <input class="pswrd2" type="password" name="answer" maxlength="25" value="{{ user.answer }}" readonly required>
+                        <label>Answer</label>
+                        <span class="show2">SHOW</span>
+                        <span id="error7" class="error"></span>
+                    </div>
+                </div>
+                <div class="submit-btn">
+                    <div class="inner"></div>
+                    <input type="submit" value="SAVE" onclick="validation()">
+                </div>
+            </form>
+            {% if messages %}
+                {% for message in messages %}
+                <script>
+                    alert('{{ message }}');
+                </script>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Footer Part start -->
+    <footer>
+        <div class="main-content">
+            <div class="left box">
+                <h2>About us</h2>
+                <div class="content">
+                    <p>A vehicle rental platform for cars and bikes that enables users to browse, book, and pay for rentals online. It features vehicle listings, availability checks, secure payments, and booking management, offering a convenient way to rent vehicles on-demand.</p>
+                    <div class="social">
+                        <a href="https://www.facebook.com/satyabrata.panda.3956690?mibextid=ZbWKwL" target="_blank" style="--social-clr: #1877f2;"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com/__satyabrata__" target="_blank" style="--social-clr: #000000;"><i class="fab fa-x-twitter"></i></a>
+                        <a href="https://www.instagram.com/satya.brata_panda?igsh=MTNuNHBuMXg4MTUyOQ==" target="_blank" style="--social-clr: #c32aa3;"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/channel/UCRwqXSEz4xspk1B1z592-fA" target="_blank" style="--social-clr: #ff0000;"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="center box">
+                <h2>Address</h2>
+                <div class="content">
+                    <div class="place">
+                        <span class="fas fa-location-dot icon" style="--all-clr: #1c68b5;"></span>
+                        <span class="text">India</span>
+                    </div>
+                    <div class="phone">
+                        <span class="fas fa-phone icon" style="--all-clr: #000080;"></span>
+                        <span class="text">+91 6371223344</span>
+                    </div>
+                    <div class="email">
+                        <span class="fas fa-envelope icon" style="--all-clr: #ff0000;"></span>
+                        <span class="text">satyabrata&#64;gmail.com</span>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="right box">
+                <h2>Contact us</h2>
+                <div class="content">
+                    <form action="#">
+                        <div class="email">
+                            <div class="text">Email <span style="color: red;">*</span></div>
+                            <input type="email" required>
+                        </div>
+                        <div class="msg">
+                            <div class="text">Message <span style="color: red;">*</span></div>
+                            <textarea cols="25" rows="2" required></textarea>
+                        </div>
+                        <div class="contact-us-btn">
+                            <button type="submit">Send</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="bottom">
+            <div class="center">
+                <span class="credit">Created By <a href="#">Satya</a> | &copy; 2024 All rights reserved.</span>
+            </div>
+        </div>
+    </footer>
+    <script src="{% static 'js/header.js' %}"></script>
+    <script src="{% static 'js/user_profile.js' %}"></script>
+    <script src="{% static 'js/validation.js' %}"></script>
+</body>
+</html>

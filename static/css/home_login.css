@@ -1,0 +1,286 @@
+/* ===============================================================================
+                                    Home Page
+=============================================================================== */
+h1.heading{
+    text-align: center;
+    margin: 20px auto;
+    background: linear-gradient(to right,#fc8c14,#ff0000,#fc8c14,#ff0000);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+.search_location{
+    display: flex;
+    justify-content: center;
+}
+.search_location div{
+    position: relative;
+    height: 45px;
+    width: 350px;
+    background: var(--text-color);
+    border-radius: 25px;
+    border: 1.5px solid #0000ff;
+}
+.search_location div input{
+    background: transparent;
+    height: 100%;
+    width: 300px;
+    border-radius: 25px;
+    outline: none;
+    border: none;
+    font-size: 20px;
+    padding-left: 15px;
+}
+.search_location div input::placeholder{
+    color: #414141;
+}
+.search_location div i{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 37px;
+    width: 37px;
+    font-size: 18px;
+    margin-left: 3px;
+    border-radius: 50%;
+    background: #00dbde;
+    cursor: pointer;
+}
+#notfound{
+    color: red;
+    text-align: center;
+    font-size: 26px;
+    display: none;
+}
+.no-vehicle{
+    color: red;
+    text-align: center;
+    font-size: 26px;
+    margin: 30px 0;
+}
+.home_container{
+    position: relative;
+    max-width: 1350px;
+    width: 100%;
+    padding: 20px;
+    margin: 20px auto;
+}
+.home_container .fiter_buttons{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.home_container .fiter_buttons button{
+    padding: 10px 20px;
+    font-size: 18px;
+    background: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+.home_container .fiter_buttons button.active{
+    background: #0000ff;
+    color: #fff;
+}
+.filterable_cards{
+    display: flex;
+    margin-top: 25px;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+.filterable_cards .card{
+    flex-grow: 1;
+    flex-basis: 300px;
+    background-color: var(--text-color);
+    padding: 3px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+.filterable_cards .card.hide{
+    display: none;
+}
+.filterable_cards .card img{
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+    border-radius: 8px 8px 0 0;
+}
+.filterable_cards .card .card_body{
+    padding: 15px 20px;
+}
+.card .card_body .card_title{
+    font-size: 20px;
+    font-weight: 600;
+    color: #111;
+}
+.card .card_body .card_details{
+    font-size: 17px;
+    color: #111;
+    text-transform: capitalize;
+}
+.card .card_body .rent_btn{
+    background: #0000ff;
+    padding: 8px 0;
+    margin-top: 10px;
+    text-align: center;
+    cursor: pointer;
+}
+.card .card_body .rent_btn a{
+    text-decoration: none;
+    color: #fff;
+    font-size: 17px;
+    font-weight: 500;
+}
+.card .card_body .rent_btn form button{
+    height: 100%;
+    width: 100%;
+    color: #fff;
+    font-size: 17px;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: none;
+}
+
+
+/* ===============================================================================
+                                    Login Page
+=============================================================================== */
+
+.error{
+    margin: 0;
+}
+.about{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-family: sans-serif;
+    justify-content: center;
+    padding: 0 20px;
+}
+.container{
+    position: relative;   
+    width: 400px;
+    background: var(--text-color);
+    padding: 50px 35px 40px;
+    margin: auto;
+    margin-top: 50px;
+    border-radius: 5px;
+}
+header{
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 50px;
+    background: -webkit-linear-gradient(left, #56d8e4, #9f01ea, #56d8e4, #9f01ea);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: 'Montserrat', sans-serif;
+}
+.input-field, form .button{
+    margin: 25px 0;
+    position: relative;
+    height: 47px;
+    width: 100%;
+}
+.input-field h2{
+    font-size: 30px;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(to right,#00dbde,#fc00ff,#00dbde,#fc00ff);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+.input-field input{
+    height: 100%;
+    width: 100%;
+    background-color: var(--text-color);
+    border: 1.5px solid var(--border-color);
+    padding-left: 15px;
+    outline: none;
+    font-size: 19px;
+    transition: 0.4s;
+}
+input:focus{
+    border: 1.5px solid var(--link-btn);
+}
+.input-field label, span.show, span.show2{
+    position: absolute;
+    top: 50%;    
+    transform: translateY(-50%);    
+}
+.input-field label{
+    left: 15px;
+    pointer-events: none;
+    color: gray;
+    font-size: 18px;
+    transition: 0.4s;
+}
+span.show, span.show2{
+    right: 18px;
+    color: #111;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+    visibility: hidden;
+    font-family: 'Open Sans', sans-serif;
+}
+input:valid ~ span.show, input:valid ~ span.show2{
+    visibility: visible;
+}
+input:focus ~ label,
+input:valid ~ label{
+    transform: translateY(-33px);
+    padding: 0 5px;
+    background: var(--text-color);
+    font-size: 16px;
+    color: var(--link-btn);
+}
+form .button{
+    margin-top: 30px;
+    overflow: hidden;
+    z-index: 0;
+}
+.button .inner{
+    position: absolute;
+    height: 100%;
+    width: 300%;
+    left: -100%;
+    z-index: -1;
+    transition: all 0.4s;
+    background: -webkit-linear-gradient(right,#00dbde,#fc00ff,#00dbde,#fc00ff);
+}
+.button:hover .inner{
+    left: 0;   
+}
+.button button{
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: none;
+    outline: none;
+    color: var(--text-color);
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+}
+.signup{
+    margin-top: 40px;
+    font-family: 'Noto Sans', sans-serif;
+}
+.recovery{
+    margin-top: -15px;
+    font-size: 16px;
+    text-align: left;
+    font-family: 'Noto Sans', sans-serif;
+}
+.signup a, .recovery a{
+    color: var(--link-btn);
+    text-decoration: none;
+}
+.signup a:hover, .recovery a:hover{
+    text-decoration: underline;
+}

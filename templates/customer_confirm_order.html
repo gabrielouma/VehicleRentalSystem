@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirm Vehicle</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="icon" href="{% static 'vehicle_images/logo.png' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'css/header_footer.css' %}">
+    <link rel="stylesheet" href="{% static 'css/customer_confirm_order.css' %}">
+</head>
+<body>
+    <nav>
+        <div class="nav-bar">
+            <i class="fas fa-bars sidebarOpen"></i>
+            <span class="logo navLogo"><a href="/select_vehicle">My Vehicles</a></span>
+            <div class="menu">
+                <div class="logo-toggle">
+                    <span class="logo"><a href="/select_vehicle">My Vehicles</a></span>
+                    <i class="fas fa-xmark siderbarClose"></i>
+                </div>
+                
+                <ul class="nav-links">
+                    <li><a href="/select_vehicle">Vehicle</a></li>
+                    <li><a href="/request_vehicle">Request</a></li>
+                    <li><a href="/customer_orders">Orders</a></li>
+                    <li><a href="/logout">Signout</a></li>
+                    <li>
+                        <div class="dark-light">
+                            <i class="fas fa-sun sun"></i>
+                            <i class="fas fa-moon moon"></i>
+                        </div>
+                    </li>
+                    <li><img src="{% static 'profile_picture/' %}{{user.images}}" class="user-pic" alt="Profile Picture" onclick="toggleMenu()"></li>
+                </ul>
+            </div>
+            <div class="darkLight">
+                <div class="dark-light">
+                    <i class="fas fa-sun sun"></i>
+                    <i class="fas fa-moon moon"></i>
+                </div>
+                <img src="{% static 'profile_picture/' %}{{user.images}}" alt="Profile Picture" onclick="toggleMenu()">
+            </div>
+            <div class="sub-menu-wrap" id="subMenu">
+                <div class="sub-menu">
+                    <div class="user-info">
+                        <img src="{% static 'profile_picture/' %}{{user.images}}" alt="Profile Picture">
+                        <h3>Hii, {{user.firstname}}</h3>
+                    </div>
+                    <hr>
+                    <a href="/user_profile" class="sub-menu-link">
+                        <i class="fas fa-user"></i>
+                        <p>Edit Profile</p>
+                        <span> > </span>
+                    </a>
+                    <a href="#" class="sub-menu-link">
+                        <i class="fas fa-gear"></i>
+                        <p>Settings & Privacy</p>
+                        <span> > </span>
+                    </a>
+                    <a href="#" class="sub-menu-link">
+                        <i class="fas fa-circle-question"></i>
+                        <p>Help & Support</p>
+                        <span> > </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+<!--  Header End -->
+
+    <!-- Main Content Start -->
+    <h1 class="heading">Confirm Your vehicle for rent</h1>
+    
+    <div class="home_container">
+        <div class="filterable_cards">
+            <div class="card single-card">
+                <img src="{% static 'vehicle_images/' %}{{vehicle.image}}" alt="{{vehicle.vehicle_type}}">
+                <div class="card_body">
+                    <h3 class="card_title">{{vehicle.vehicle_type}} Name: {{vehicle.name}}</h3>
+                    <p class="card_details"><b>{{vehicle.vehicle_type}} Dealer: </b>{{dealer.firstname}} {{dealer.lastname}}<br><b>Rent: </b>₹ {{vehicle.rent}} per day</p>
+                    <p class="card_details"><b>Location: </b>{{vehicle.location}}</p>
+                    <form method="post" action="/order_details/">
+                        {% csrf_token %}
+                        <input type="hidden" value="{{vehicle.vehicle_id}}" name="id">
+                        <div class="input-field">
+                            <input type="text" name="days" maxlength="2" onKeyPress="return numbersonly(event)" required>
+                            <label>How many days ?</label>
+                        </div>
+                        <div class="button">
+                            <div class="inner"></div>
+                            <button type="submit">CONFIRM</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Part start -->
+    <footer>
+        <div class="main-content">
+            <div class="left box">
+                <h2>About us</h2>
+                <div class="content">
+                    <p>A vehicle rental platform for cars and bikes that enables users to browse, book, and pay for rentals online. It features vehicle listings, availability checks, secure payments, and booking management, offering a convenient way to rent vehicles on-demand.</p>
+                    <div class="social">
+                        <a href="https://www.facebook.com/satyabrata.panda.3956690?mibextid=ZbWKwL" target="_blank" style="--social-clr: #1877f2;"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com/__satyabrata__" target="_blank" style="--social-clr: #000000;"><i class="fab fa-x-twitter"></i></a>
+                        <a href="https://www.instagram.com/satya.brata_panda?igsh=MTNuNHBuMXg4MTUyOQ==" target="_blank" style="--social-clr: #c32aa3;"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/channel/UCRwqXSEz4xspk1B1z592-fA" target="_blank" style="--social-clr: #ff0000;"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="center box">
+                <h2>Address</h2>
+                <div class="content">
+                    <div class="place">
+                        <span class="fas fa-location-dot icon" style="--all-clr: #1c68b5;"></span>
+                        <span class="text">India</span>
+                    </div>
+                    <div class="phone">
+                        <span class="fas fa-phone icon" style="--all-clr: #000080;"></span>
+                        <span class="text">+91 6371223344</span>
+                    </div>
+                    <div class="email">
+                        <span class="fas fa-envelope icon" style="--all-clr: #ff0000;"></span>
+                        <span class="text">satyabrata&#64;gmail.com</span>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="right box">
+                <h2>Contact us</h2>
+                <div class="content">
+                    <form action="#">
+                        <div class="email">
+                            <div class="text">Email <span style="color: red;">*</span></div>
+                            <input type="email" required>
+                        </div>
+                        <div class="msg">
+                            <div class="text">Message <span style="color: red;">*</span></div>
+                            <textarea cols="25" rows="2" required></textarea>
+                        </div>
+                        <div class="contact-us-btn">
+                            <button type="submit">Send</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="bottom">
+            <div class="center">
+                <span class="credit">Created By <a href="#">Satya</a> | &copy; 2024 All rights reserved.</span>
+            </div>
+        </div>
+    </footer>
+    <script src="{% static 'js/header.js' %}"></script>
+    <script src="{% static 'js/validation.js' %}"></script>
+</body>
+</html>

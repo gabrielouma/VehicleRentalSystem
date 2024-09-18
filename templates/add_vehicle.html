@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Vehicle</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="icon" href="{% static 'vehicle_images/logo.png' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'css/header_footer.css' %}">
+    <link rel="stylesheet" href="{% static 'css/add_vehicle.css' %}">
+</head>
+<body>
+    <nav>
+        <div class="nav-bar">
+            <i class="fas fa-bars sidebarOpen"></i>
+            <span class="logo navLogo"><a href="/dealer_home">My Vehicles</a></span>
+            <div class="menu">
+                <div class="logo-toggle">
+                    <span class="logo"><a href="/dealer_home">My Vehicles</a></span>
+                    <i class="fas fa-xmark siderbarClose"></i>
+                </div>
+                
+                <ul class="nav-links">
+                    <li><a href="/dealer_home">Vehicles</a></li>
+                    <li><a href="/add_vehicle" class="active">Add Vehicle</a></li>
+                    <li><a href="/rented_vehicle">Rents</a></li>
+                    <li><a href="/dealer_orders">Orders</a></li>
+                    <li><a href="/logout">Signout</a></li>
+                    <li>
+                        <div class="dark-light">
+                            <i class="fas fa-sun sun"></i>
+                            <i class="fas fa-moon moon"></i>
+                        </div>
+                    </li>
+                    <li><img src="{% static 'profile_picture/' %}{{user.images}}" class="user-pic" alt="Profile Picture" onclick="toggleMenu()"></li>
+                </ul>
+            </div>
+            <div class="darkLight">
+                <div class="dark-light">
+                    <i class="fas fa-sun sun"></i>
+                    <i class="fas fa-moon moon"></i>
+                </div>
+                <img src="{% static 'profile_picture/' %}{{user.images}}" alt="Profile Picture" onclick="toggleMenu()">
+            </div>
+            <div class="sub-menu-wrap" id="subMenu">
+                <div class="sub-menu">
+                    <div class="user-info">
+                        <img src="{% static 'profile_picture/' %}{{user.images}}" alt="Profile Picture">
+                        <h3>Hii, {{user.firstname}}</h3>
+                    </div>
+                    <hr>
+                    <a href="/user_profile" class="sub-menu-link">
+                        <i class="fas fa-user"></i>
+                        <p>Edit Profile</p>
+                        <span> > </span>
+                    </a>
+                    <a href="#" class="sub-menu-link">
+                        <i class="fas fa-gear"></i>
+                        <p>Settings & Privacy</p>
+                        <span> > </span>
+                    </a>
+                    <a href="#" class="sub-menu-link">
+                        <i class="fas fa-circle-question"></i>
+                        <p>Help & Support</p>
+                        <span> > </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+<!--  Header End -->
+
+    <!-- Main Content Start -->
+    <div class="contactus">
+        <div class="container">
+            <div class="text">Add Vehicle</div><hr>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-row">
+                    <div class="user-img">
+                        <h3 class="vehicle-title">Upload Image</h3>
+                        <img src="{% static 'vehicle_images/' %}{{logo_name}}" id="vehicle_photo" title="*Total Image size must lessthan 8mb">
+                        <div class="img_name"></div>
+                        <input type="file" id="file" class="img_file" name="name" accept="image/*" required>
+                        <label for="file">Choose Image</label>
+                    </div>
+                    <div class="input-data">
+                        <select name="vehicle_type" required>
+                            <option value="" disabled selected>Select vehicle type</option>
+                            <option value="Bike">Bike (2 wheeler)</option>
+                            <option value="Car">Car (4 wheeler)</option>
+                        </select>
+                        <span id="error1" class="error"></span>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="input-data">
+                        <input type="text" name="vehicle_name" id="vehicle_name" maxlength="25" required>
+                        <div class="underline"></div>
+                        <label for="">Vehicle Name</label>
+                        <span id="error" class="error"></span>
+                    </div>
+                    <div class="input-data">
+                        <input type="text" name="capacity" id="capacity" onKeyPress="return numbersonly(event)" maxlength="2" minlength="1" required>
+                        <div class="underline"></div>
+                        <label for="">Seat Capacity</label>
+                        <span id="error2" class="error"></span>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="input-data">
+                        <input type="text" name="rent" id="rent" maxlength="4" onKeyPress="return numbersonly(event)" required>
+                        <div class="underline"></div>
+                        <label for="">Rent Per Day</label>
+                        <span id="error3" class="error"></span>
+                    </div>
+                    <div class="input-data">
+                        <input type="text" name="city" id="city" maxlength="25" required>
+                        <div class="underline"></div>
+                        <label for="">City Name</label>
+                        <span id="error4" class="error"></span>
+                    </div>
+                </div>
+                <div class="form-row submit-btn">
+                    <div class="input-data">
+                        <div class="inner"></div>
+                        <input type="submit" value="Add" onclick="validation()">
+                    </div>
+                </div>
+            </form>
+            {% if messages %}
+                {% for message in messages %}
+                <script>
+                    alert('{{ message }}');
+                </script>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Footer Part start -->
+    <footer>
+        <div class="main-content">
+            <div class="left box">
+                <h2>About us</h2>
+                <div class="content">
+                    <p>A vehicle rental platform for cars and bikes that enables users to browse, book, and pay for rentals online. It features vehicle listings, availability checks, secure payments, and booking management, offering a convenient way to rent vehicles on-demand.</p>
+                    <div class="social">
+                        <a href="https://www.facebook.com/satyabrata.panda.3956690?mibextid=ZbWKwL" target="_blank" style="--social-clr: #1877f2;"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com/__satyabrata__" target="_blank" style="--social-clr: #000000;"><i class="fab fa-x-twitter"></i></a>
+                        <a href="https://www.instagram.com/satya.brata_panda?igsh=MTNuNHBuMXg4MTUyOQ==" target="_blank" style="--social-clr: #c32aa3;"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/channel/UCRwqXSEz4xspk1B1z592-fA" target="_blank" style="--social-clr: #ff0000;"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="center box">
+                <h2>Address</h2>
+                <div class="content">
+                    <div class="place">
+                        <span class="fas fa-location-dot icon" style="--all-clr: #1c68b5;"></span>
+                        <span class="text">India</span>
+                    </div>
+                    <div class="phone">
+                        <span class="fas fa-phone icon" style="--all-clr: #000080;"></span>
+                        <span class="text">+91 6371223344</span>
+                    </div>
+                    <div class="email">
+                        <span class="fas fa-envelope icon" style="--all-clr: #ff0000;"></span>
+                        <span class="text">satyabrata&#64;gmail.com</span>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="right box">
+                <h2>Contact us</h2>
+                <div class="content">
+                    <form action="#">
+                        <div class="email">
+                            <div class="text">Email <span style="color: red;">*</span></div>
+                            <input type="email" required>
+                        </div>
+                        <div class="msg">
+                            <div class="text">Message <span style="color: red;">*</span></div>
+                            <textarea cols="25" rows="2" required></textarea>
+                        </div>
+                        <div class="contact-us-btn">
+                            <button type="submit">Send</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="bottom">
+            <div class="center">
+                <span class="credit">Created By <a href="#">Satya</a> | &copy; 2024 All rights reserved.</span>
+            </div>
+        </div>
+    </footer>
+    <script src="{% static 'js/header.js' %}"></script>
+    <script src="{% static 'js/validation.js' %}"></script>
+    <script>
+        const vehicle_photo = document.querySelector("#vehicle_photo"),
+            input_file = document.querySelector("#file"),
+            img_name = document.querySelector(".img_name");
+        
+        input_file.addEventListener("change", () => {
+            vehicle_photo.src = URL.createObjectURL(input_file.files[0]);
+            console.log(input_file.files[0].name);
+            img_name.innerHTML = input_file.files[0].name;
+        });
+    </script>
+</body>
+</html>

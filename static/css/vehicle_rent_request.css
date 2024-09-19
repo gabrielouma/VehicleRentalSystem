@@ -4,6 +4,7 @@ h1.heading{
     background: linear-gradient(to right,#fc8c14,#ff0000,#fc8c14,#ff0000);
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
+    background-clip: text;
 }
 .rent_container{
     position: relative;

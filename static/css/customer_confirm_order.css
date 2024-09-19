@@ -3,6 +3,7 @@ h1.heading{
     margin-top: 20px;
     background: linear-gradient(to right,#fc8c14,#ff0000,#fc8c14,#ff0000);
     -webkit-text-fill-color: transparent;
+    background-clip: text;
     -webkit-background-clip: text;
 }
 .home_container{
@@ -168,10 +169,11 @@ form .button{
     align-items: center;
     padding: .6rem .7rem;
 }
-.order_container main .table_header h1{
+.order_container main .table_header h1 {
     font-family: cursive;
     background: -webkit-linear-gradient(left, #0d2ee8, #ae1df1, #0d2ee8, #ae1df1);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 .order_container main .table_body{

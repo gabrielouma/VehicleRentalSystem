@@ -90,11 +90,17 @@ USE_TZ = True
 
 # Static and Media File Handling
 STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
+
 STATICFILES_DIRS = [STATIC_DIR]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-MEDIA_URL = '/media/'
+# Media setup
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+PROFILE_PICTURE_DIR = os.path.join(MEDIA_ROOT, 'profile_pictures')
+VEHICLE_IMAGES_DIR = os.path.join(MEDIA_ROOT, 'vehicle_images')
+
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'  # Or WhiteNoise for production
 
 # This will store profile pictures and vehicle images in the media directory
 # Add directories inside media folder for specific image types

@@ -22,6 +22,7 @@
     text-align: center;
     background: -webkit-linear-gradient(right, #56d8e4, #9f01ea, #56d8e4, #9f01ea);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 .container form{
@@ -213,6 +214,7 @@ form .submit-btn .input-data input{
     background: linear-gradient(to right,#00dbde,#fc00ff,#00dbde,#fc00ff);
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
+    background-clip: text;
     font-size: 26px;
     font-weight: bold;
     line-height: 0.8em;

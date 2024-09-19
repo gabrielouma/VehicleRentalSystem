@@ -7,6 +7,7 @@ h1.heading{
     background: linear-gradient(to right,#fc8c14,#ff0000,#fc8c14,#ff0000);
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
+    background-clip: text;
 }
 .search_location{
     display: flex;
@@ -175,6 +176,7 @@ header{
     margin-bottom: 50px;
     background: -webkit-linear-gradient(left, #56d8e4, #9f01ea, #56d8e4, #9f01ea);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     font-family: 'Montserrat', sans-serif;
 }
@@ -190,6 +192,7 @@ header{
     text-align: center;
     background: linear-gradient(to right,#00dbde,#fc00ff,#00dbde,#fc00ff);
     -webkit-text-fill-color: transparent;
+    background-clip: text;
     -webkit-background-clip: text;
 }
 .input-field input{

@@ -16,7 +16,7 @@ STATIC_DIR = BASE_DIR / 'static'
 SECRET_KEY = 'django-insecure-lu)wf@&*+t3ok5)ju)lj0apcrg@@(dlna@ywii+4d3xkzvt!6t'
 
 # Debug
-DEBUG = False
+DEBUG = True
 
 # Allowed Hosts
 ALLOWED_HOSTS = ['.vercel.app', '.now.sh', 'localhost', '127.0.0.1']
@@ -91,6 +91,9 @@ USE_TZ = True
 
 # Static and Media File Handling
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
 MEDIA_URL = '/media/'
 
 STATICFILES_DIRS = [STATIC_DIR]

@@ -3,6 +3,7 @@ h1.heading{
     margin: 20px auto;
     background: linear-gradient(to right,#fc8c14,#ff0000,#fc8c14,#ff0000);
     -webkit-text-fill-color: transparent;
+    background-clip: text;
     -webkit-background-clip: text;
 }
 .rent_container{

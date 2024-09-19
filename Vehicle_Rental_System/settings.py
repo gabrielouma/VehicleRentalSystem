@@ -91,26 +91,15 @@ USE_TZ = True
 
 # Static and Media File Handling
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-]
-MEDIA_URL = '/media/'
+MEDIA_URL = '/images/'
 
-STATICFILES_DIRS = [STATIC_DIR]
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-# Media setup
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'images')
 PROFILE_PICTURE_DIR = os.path.join(MEDIA_ROOT, 'profile_pictures')
 VEHICLE_IMAGES_DIR = os.path.join(MEDIA_ROOT, 'vehicle_images')
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
-
-# This will store profile pictures and vehicle images in the media directory
-# Add directories inside media folder for specific image types
-PROFILE_PICTURE_DIR = os.path.join(MEDIA_ROOT, 'profile_pictures')
-VEHICLE_IMAGES_DIR = os.path.join(MEDIA_ROOT, 'vehicle_images')
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

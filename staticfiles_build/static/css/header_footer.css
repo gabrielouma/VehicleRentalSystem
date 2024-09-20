@@ -262,11 +262,18 @@ nav .nav-bar .logo a{
 
 
 
-footer{
-    position: relative;
-    bottom: 0;
-    width: 100%;
-    margin-top: 50px;
+
+    footer {
+        width: 100%;
+        position: relative;
+        bottom: 0;
+        background: linear-gradient(to right, #1a2a6c,  #11025b);
+        color: #fff;
+        padding: 10px  5px;
+        border-top-left-radius: 125px;  
+        font-size: 13px;
+        line-height: 20px;
+        margin-top: auto;
     background-color: var(--footer-bg);
     color: var(--text-color);
 }

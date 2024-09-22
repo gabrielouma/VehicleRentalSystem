@@ -24,7 +24,7 @@
 }
 
 :root{
-    --body-img: url(../images/bg.jpg);
+    /* --body-img: url('../images/bg-dark.jpg'); */
     --nav-color: #4070f4;
     --side-color: #021445;
     --text-color: #fff;
@@ -44,7 +44,7 @@ body{
     background-position: center;
 }
 body.dark{
-    --body-img: url(../images/bg-dark.jpg);
+    /* --body-img: url(../images/bg-dark.jpg); */
     --nav-color: #242526;
     --side-color: #242526;
     --text-color: #ccc;
@@ -267,10 +267,10 @@ nav .nav-bar .logo a{
         width: 100%;
         position: relative;
         bottom: 0;
-        background: linear-gradient(to right, #1a2a6c,  #11025b);
+        background: linear-gradient(to right, #4b5ca0,  #11025b);
         color: #fff;
         padding: 10px  5px;
-        border-top-left-radius: 125px;  
+        border-top-left-radius: 80px;  
         font-size: 13px;
         line-height: 20px;
         margin-top: auto;

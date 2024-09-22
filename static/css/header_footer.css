@@ -13,18 +13,18 @@
 ::-webkit-scrollbar{
     width: .6rem;
     border-radius: .5rem;
-    background-color: hsl(183, 74%, 83%);
+    background-color: hwb(0 39% 61%);
 }
 ::-webkit-scrollbar-thumb{
     border-radius: .5rem;
-    background-color: rgb(0, 217, 255);
+    background-color: hwb(0 78% 22%);
 }  
 ::-webkit-scrollbar-thumb:hover{
-    background-color: hsl(198, 100%, 50%);
+    background-color: hwb(0 39% 61%);
 }
 
 :root{
-    --body-img: url(../images/bg.jpg);
+    --body-img: url(../images/background.jpg);
     --nav-color: #4070f4;
     --side-color: #021445;
     --text-color: #fff;
@@ -54,7 +54,7 @@ body.dark{
     --radio-btn: #e1e0e0;
     --link-btn: #1d6ff2;
     --search-btn: #00bbff;
-    --footer-bg: #5a5a5a;
+    --footer-bg: #151515;
     --disable-color: #b1b1b1;
 }
 .error{

@@ -2,14 +2,14 @@
 Welcome to the Vehicle Rental System! This platform allows users to browse, book, and manage car and bike rentals conveniently. The system is built using Django and PostgreSQL and is deployed on Render.
 
 # Deployed Project
-The project is currently deployed and accessible at:<a href="https://vehiclerentalsystem-fh4d.onrender.com/" target="_blank">VehicleRentalSystem</a>
+The project is currently deployed and accessible at:   <a href="https://vehiclerentalsystem-fh4d.onrender.com/" target="_blank">VehicleRentalSystem</a>
 
 ## Features
-*Browse available cars and bikes for rent
-*Check vehicle availability in real time
-*Book vehicles online
-*Manage bookings easily through a user-friendly interface
-*Dealer management of vehicle listings
+* Browse available cars and bikes for rent
+* Check vehicle availability in real time
+* Book vehicles online
+* Manage bookings easily through a user-friendly interface
+* Dealer management of vehicle listings
 
 ## Getting Started Locally
 To run the project on your local machine, follow these steps:
@@ -17,13 +17,81 @@ To run the project on your local machine, follow these steps:
 # Prerequisites
 Ensure you have the following installed:
 
-*Python 3.x
-*Django
-*PostgreSQL
-*Git
-*Virtualenv
+* Python 3.12
+* Django
+* PostgreSQL
+* Git
+* Virtualenv
 
 # Installation
+
+1. Clone the repository
+git clone https://github.com/gabrielouma/VehicleRentalSystem.git
+
+cd vehicle-rental-system
+
+2. Create a virtual environment
+virtualenv venv
+source venv/bin/activate  # For Linux/macOS
+# OR
+venv\Scripts\activate  # For Windows
+
+3. Install the dependencies
+pip install -r requirements.txt
+
+4. Configure the database
+
+- Create a new PostgreSQL database:
+createdb vehiclerentalsystem
+
+- Update the DATABASES settings in settings.py with your local database credentials:
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'vehiclerentalsystem',
+        'USER': 'your_postgres_user',
+        'PASSWORD': 'your_postgres_password',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
+}
+
+5. Run migrations
+
+python manage.py makemigrations
+
+6. Migrate the database
+
+python manage.py migrate
+
+7. Create superuser
+To access the Django admin panel and manage the system, create a superuser account:
+
+python manage.py createsuperuser
+
+8. Run the server
+
+python manage.py runserver
+
+9. Access the site
+pen your web browser and go to http://127.0.0.1:8000/ to access the application locally.
+
+# Deployment
+To deploy this project to production, you can use platforms like Render or Heroku. Below are the deployment steps for Render:
+
+- Create an account and log in to Render.
+- Create a new Web Service and link it to your GitHub repository.
+- Set up environment variables, including:
+DATABASE_URL for the PostgreSQL connection string.
+- Set DEBUG=False for production environments.
+- Push your repository and let Render handle the deployment.
+
+# Support
+If you have any questions or need help, please contact us at [oumagaby01@gmail.com](mailto:oumagaby01@gmail.com).
+
+# License
+This project is licensed under the MIT License.
 
 
 

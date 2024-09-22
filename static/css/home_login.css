@@ -4,7 +4,7 @@
 h1.heading{
     text-align: center;
     margin: 20px auto;
-    background: linear-gradient(to right,#fc8c14,#ff0000,#fc8c14,#ff0000);
+    background: linear-gradient(to right,#2e2d2c,#3e3535,#1e1c1b,#1e1919);
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
     background-clip: text;
@@ -53,7 +53,7 @@ h1.heading{
     display: none;
 }
 .no-vehicle{
-    color: red;
+    color: rgb(14, 14, 14);
     text-align: center;
     font-size: 26px;
     margin: 30px 0;

@@ -4,7 +4,8 @@ Welcome to the Vehicle Rental System! This platform allows users to browse, book
 # Deployed Project
 The project is currently deployed and accessible at:
 Vehicle Rental System
-<a href="http://127.0.0.1:8000/">http://127.0.0.1:8000/</a>
+<a href="https://vehiclerentalsystem-fh4d.onrender.com/" target="_blank">Open Vehiclerentalsystem</a>
+
 
 
 

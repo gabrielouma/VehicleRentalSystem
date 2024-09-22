@@ -33,7 +33,9 @@ cd vehicle-rental-system
 * Create a virtual environment
 virtualenv venv
 source venv/bin/activate  # For Linux/macOS
-# OR
+
+- OR
+
 venv\Scripts\activate  # For Windows
 
 * Install the dependencies

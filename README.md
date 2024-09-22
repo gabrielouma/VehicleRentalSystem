@@ -4,7 +4,7 @@ Welcome to the Vehicle Rental System! This platform allows users to browse, book
 # Deployed Project
 The project is currently deployed and accessible at:
 Vehicle Rental System
-in [Section `https://vehiclerentalsystem-fh4d.onrender.com/`](#VehicleRentalSystem)
+in [`https://vehiclerentalsystem-fh4d.onrender.com/`]
 
 
 

@@ -25,21 +25,21 @@ Ensure you have the following installed:
 
 # Installation
 
-1. Clone the repository
+* Clone the repository
 git clone https://github.com/gabrielouma/VehicleRentalSystem.git
 
 cd vehicle-rental-system
 
-2. Create a virtual environment
+* Create a virtual environment
 virtualenv venv
 source venv/bin/activate  # For Linux/macOS
 # OR
 venv\Scripts\activate  # For Windows
 
-3. Install the dependencies
+* Install the dependencies
 pip install -r requirements.txt
 
-4. Configure the database
+* Configure the database
 
 - Create a new PostgreSQL database:
 createdb vehiclerentalsystem
@@ -57,24 +57,24 @@ DATABASES = {
     }
 }
 
-5. Run migrations
+* Run migrations
 
 python manage.py makemigrations
 
-6. Migrate the database
+* Migrate the database
 
 python manage.py migrate
 
-7. Create superuser
+* Create superuser
 To access the Django admin panel and manage the system, create a superuser account:
 
 python manage.py createsuperuser
 
-8. Run the server
+* Run the server
 
 python manage.py runserver
 
-9. Access the site
+* Access the site
 pen your web browser and go to http://127.0.0.1:8000/ to access the application locally.
 
 # Deployment

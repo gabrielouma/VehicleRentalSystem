@@ -1,4 +1,17 @@
-# Vehicle Rental System (Django)
+# Vehicle Rental System
+Welcome to the Vehicle Rental System! This platform allows users to browse, book, and manage car and bike rentals conveniently. The system is built using Django and PostgreSQL and is deployed on Render.
+
+# Deployed Project
+The project is currently deployed and accessible at:
+Vehicle Rental System
+in [Section `https://vehiclerentalsystem-fh4d.onrender.com/`](#VehicleRentalSystem)
+
+
+
+
+
+
+<!-- # Vehicle Rental System (Django)
 This is a Django-based vehicle rental platform for cars and bikes, allowing users to browse, book, and pay for rentals online. The platform provides a seamless experience for managing vehicle rentals, ensuring convenience for both users and service providers.
 
 # Features
@@ -45,4 +58,4 @@ Contributing
 Feel free to contribute to this project by creating a pull request or opening an issue.
 
 License
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License - see the LICENSE file for details. -->

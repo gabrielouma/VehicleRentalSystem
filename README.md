@@ -2,9 +2,28 @@
 Welcome to the Vehicle Rental System! This platform allows users to browse, book, and manage car and bike rentals conveniently. The system is built using Django and PostgreSQL and is deployed on Render.
 
 # Deployed Project
-The project is currently deployed and accessible at:
-Vehicle Rental System
-<a href="https://vehiclerentalsystem-fh4d.onrender.com/" target="_blank">Open Vehiclerentalsystem</a>
+The project is currently deployed and accessible at:<a href="https://vehiclerentalsystem-fh4d.onrender.com/" target="_blank">VehicleRentalSystem</a>
+
+## Features
+*Browse available cars and bikes for rent
+*Check vehicle availability in real time
+*Book vehicles online
+*Manage bookings easily through a user-friendly interface
+*Dealer management of vehicle listings
+
+## Getting Started Locally
+To run the project on your local machine, follow these steps:
+
+# Prerequisites
+Ensure you have the following installed:
+
+*Python 3.x
+*Django
+*PostgreSQL
+*Git
+*Virtualenv
+
+# Installation
 
 
 

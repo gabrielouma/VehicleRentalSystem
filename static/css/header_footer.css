@@ -24,7 +24,7 @@
 }
 
 :root{
-    --body-img: url(../images/background.jpg);
+    --body-img: url();
     --nav-color: #4070f4;
     --side-color: #021445;
     --text-color: #fff;
@@ -44,7 +44,7 @@ body{
     background-position: center;
 }
 body.dark{
-    --body-img: url(../images/bg-dark.jpg);
+    --body-img: url();
     --nav-color: #242526;
     --side-color: #242526;
     --text-color: #ccc;
